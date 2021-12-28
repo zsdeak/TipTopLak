@@ -1,0 +1,182 @@
+///
+/// Dimension by HTML5 UP
+/// html5up.net | @ajlkn
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+///
+
+/* Main */
+
+	#main {
+		@include vendor('flex-grow', '1');
+		@include vendor('flex-shrink', '1');
+		@include vendor('display', 'flex');
+		@include vendor('align-items', 'center');
+		@include vendor('justify-content', 'center');
+		@include vendor('flex-direction', 'column');
+		position: relative;
+		max-width: 100%;
+		z-index: 3;
+		display: none;
+
+		article {
+			@include vendor('transform', 'translateY(0.25rem)');
+			@include vendor('transition', (
+				'opacity #{_duration(article)} ease-in-out',
+				'transform #{_duration(article)} ease-in-out'
+			));
+			@include padding(2.5rem, 2.5rem, (2rem, 0, 1rem, 0));
+			position: relative;
+			width: 40rem;
+			max-width: 100%;
+			background-color: transparentize(_palette(bg), 0.15);
+			border-radius: _size(border-radius);
+			opacity: 0;
+
+			&.timeout {
+				display: none;
+			}
+
+			&.active.timeout {
+				@include vendor('transform', 'translateY(0)');
+				opacity: 1;
+			}
+
+			&.active {
+				display: block !important;
+			}
+
+			.close {
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 4rem;
+				height: 4rem;
+				cursor: pointer;
+				text-indent: 4rem;
+				overflow: hidden;
+				white-space: nowrap;
+
+				&:before {
+					@include vendor('transition', 'background-color #{_duration(transition)} ease-in-out');
+					content: '';
+					display: block;
+					position: absolute;
+					top: 0.75rem;
+					left: 0.75rem;
+					width: 2.5rem;
+					height: 2.5rem;
+					border-radius: 100%;
+					background-position: center;
+					background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 20 20" zoomAndPan="disable"><style>line { stroke: #{_palette(border)}; stroke-width: 1; }</style><line x1="2" y1="2" x2="18" y2="18" /><line x1="18" y1="2" x2="2" y2="18" /></svg>');
+					background-size: 20px 20px;
+					background-repeat: no-repeat;
+				}
+
+				&:hover {
+					&:before {
+						background-color: _palette(border-bg);
+					}
+				}
+
+				&:active {
+					&:before {
+						background-color: _palette(border-bg-alt);
+					}
+				}
+			}
+
+		}
+
+		@include breakpoint(small) {
+			article {
+				@include padding(2rem, 2rem, (1.5rem, 0, 0.5rem, 0));
+				.close {
+					&:before {
+						top: 0.875rem;
+						left: 0.875rem;
+						width: 2.25rem;
+						height: 2.25rem;
+						background-size: 14px 14px;
+					}
+				}
+			}
+		}
+
+		@include breakpoint(xsmall) {
+			article {
+				@include padding(2rem, 1.5rem, (1rem, 0, 0.5rem, 0));
+			}
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+	  #header button {
+	    margin: auto !important
+	  }
+
+		#header .galleryLink {
+			margin-right: 0
+		}
+	}
+
+	@media screen and (max-width: 736px) {
+	.iconHolder {margin: 10px auto}
+	.iconHolder .gatsby-image-wrapper {width: 368px; top: 6px}
+	.aboutus .gatsby-image-wrapper {left: -135px !important}
+	.services .gatsby-image-wrapper { left: -200px !important}
+	.references .gatsby-image-wrapper { left: -74px !important}
+	.prices .gatsby-image-wrapper { left: -256px !important}
+	.contact .gatsby-image-wrapper { left: -312px !important}
+}
+
+
+#contact form button {
+    width: 100%;
+    background: rgba(225,225,225,0.5);
+    line-height: normal !important;
+    height: 2.55rem !important;
+}
+
+#contact h4 {
+	text-align: center;
+}
+
+#contact ul.icons {
+    text-align: center;
+    margin-top: 3vw;
+}
+
+span.space {
+	display: inline-block;
+	width: 1vw;
+	height: 30px;
+}
+
+@media screen and (max-width: 580px) {
+	span.space {
+		display: block;
+		height: 1px;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.galleryLink {
+    float: none;
+    text-align: center;
+    margin: auto;
+    display: inline-block;
+	}
+
+	.iconHolder .gatsby-image-wrapper {
+	    width: 315px;
+	    top: 5px !important;
+	}
+
+	.iconHolder .gatsby-image-wrapper {left: -2px}
+	.aboutus .gatsby-image-wrapper {left: -62px !important}
+	.services .gatsby-image-wrapper { left: -170px !important}
+	.references .gatsby-image-wrapper { left: -63px !important}
+	.prices .gatsby-image-wrapper { left: -217px !important}
+	.contact .gatsby-image-wrapper { left: -264px !important}
+}
